@@ -60,7 +60,7 @@ function Login() {
         </form>
 
         <p className="signup-link">
-          Don't have an account? <a href="/signup">Sign Up</a>
+          Don't have an account? <button  onClick={()=>navigate("/signup")}>Sign Up</button>
         </p>
       </div>
     </div>

@@ -10,10 +10,12 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [agreed, setAgreed] = useState(false)
   const navigate = useNavigate()
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:3001/register", {
+      console.log("BACKEND_URL:", BACKEND_URL);
+      await axios.post(`${BACKEND_URL}/register`, {
         name,
         email,
         password,
@@ -77,7 +79,7 @@ const Signup = () => {
         </form>
 
         <p className="login-link">
-          Already have an account? <a href="/login">Sign in</a>
+          Already have an account? <button onClick={()=> navigate("/login")} >Sign in</button>
         </p>
       </div>
     </div>

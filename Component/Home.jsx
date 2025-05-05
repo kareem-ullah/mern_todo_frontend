@@ -138,6 +138,7 @@ function Home() {
   };
 
   useEffect(() => {
+    console.log("BACKEND_URL:", BACKEND_URL);
     fetchTodos();
   }, []);
 
