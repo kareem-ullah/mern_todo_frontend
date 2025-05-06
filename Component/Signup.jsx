@@ -1,16 +1,16 @@
-import { useState } from "react"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import "./signup.css"
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./signup.css";
 
 const Signup = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [agreed, setAgreed] = useState(false)
-  const navigate = useNavigate()
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleRegister = async () => {
     try {
@@ -19,13 +19,13 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
         name,
         email,
         password,
-      })
-      alert("Registration Successful!")
-      navigate("/login")
+      });
+      alert("Registration Successful!");
+      navigate("/login");
     } catch (err) {
-      alert(err.response?.data?.error || "Registration Failed")
+      alert(err.response?.data?.error || "Registration Failed");
     }
-  }
+  };
 
   return (
     <div className="signup-container">
@@ -34,13 +34,19 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
         <form
           onSubmit={(e) => {
-            e.preventDefault()
-            handleRegister()
+            e.preventDefault();
+            handleRegister();
           }}
         >
           <div className="input-group">
             <div className="input-icon user-icon"></div>
-            <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </div>
 
           <div className="input-group">
@@ -63,11 +69,19 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <div className="eye-icon" onClick={() => setShowPassword(!showPassword)}></div>
+            <div
+              className="eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            ></div>
           </div>
 
           <div className="terms-group">
-            <input type="checkbox" id="terms" checked={agreed} onChange={() => setAgreed(!agreed)} />
+            <input
+              type="checkbox"
+              id="terms"
+              checked={agreed}
+              onChange={() => setAgreed(!agreed)}
+            />
             <label htmlFor="terms">
               I read and agree to <a href="#">Terms & Conditions</a>
             </label>
@@ -79,26 +93,12 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
         </form>
 
         <p className="login-link">
-          Already have an account? <button onClick={()=> navigate("/login")} >Sign in</button>
+          Already have an account?{" "}
+          <button onClick={() => navigate("/login")}>Sign in</button>
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Signup;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

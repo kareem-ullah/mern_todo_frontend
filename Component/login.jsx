@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 import "./login.css"
 
 function Login() {
@@ -12,7 +13,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3001/login", { email, password })
+      const res = await axios.post(`${BACKEND_URL}`, { email, password })
       const token = res.data.token
 
       
@@ -58,7 +59,6 @@ function Login() {
             LOGIN IN
           </button>
         </form>
-
         <p className="signup-link">
           Don't have an account? <button  onClick={()=>navigate("/signup")}>Sign Up</button>
         </p>
