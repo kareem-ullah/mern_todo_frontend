@@ -92,12 +92,14 @@
 
 import { useEffect, useState } from "react";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import { useNavigate } from "react-router-dom";
 const navigate = useNavigate();
 import axios from "axios";
 import "./Todo.css";
 
 function Create({ onAdd, editId, editTask, setEditTask, handleUpdate }) {
   const [task, setTask] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (editId) {
