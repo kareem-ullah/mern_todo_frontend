@@ -13,10 +13,9 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(`${BACKEND_URL}`, { email, password })
+      const res = await axios.post(`${BACKEND_URL}/login`, { email, password })
       const token = res.data.token
-
-      
+   
       localStorage.setItem("token", token)
 
       navigate("/")
