@@ -92,6 +92,7 @@
 
 import { useEffect, useState } from "react";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const navigate = useNavigate();
 import axios from "axios";
 import "./Todo.css";
 
@@ -133,6 +134,8 @@ function Create({ onAdd, editId, editTask, setEditTask, handleUpdate }) {
       .catch((err) => {
         console.error("Axios Error:", err);
         alert("Failed to add task");
+        navigate("/login")
+
       });
   };
 
