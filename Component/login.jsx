@@ -1,29 +1,29 @@
-import { useState } from "react"
-import axios from "axios"
+import { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-import "./login.css"
+import "./login.css";
 
 function Login() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const res = await axios.post(`${BACKEND_URL}/login`, { email, password })
-      const token = res.data.token
-   
-      localStorage.setItem("token", token)
+      const res = await axios.post(`${BACKEND_URL}/login`, { email, password });
+      const token = res.data.token;
 
-      navigate("/")
+      localStorage.setItem("token", token);
+
+      navigate("/");
     } catch (error) {
-      console.error("Login failed:", error)
-      alert("Invalid Credentials")
+      console.error("Login failed:", error);
+      alert("Invalid Credentials");
     }
-  }
+  };
 
   return (
     <div className="login-container">
@@ -51,7 +51,10 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <div className="eye-icon" onClick={() => setShowPassword(!showPassword)}></div>
+            <div
+              className="eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            ></div>
           </div>
 
           <button type="submit" className="login-button">
@@ -59,11 +62,12 @@ function Login() {
           </button>
         </form>
         <p className="signup-link">
-          Don't have an account? <button  onClick={()=>navigate("/signup")}>Sign Up</button>
+          Don't have an account?{" "}
+          <button onClick={() => navigate("/signup")}>Sign Up</button>
         </p>
       </div>
     </div>
-  )
+  );
 }
 
 export default Login;
