@@ -113,3 +113,20 @@
   color: #8a2be2;
   text-decoration: none;
 }
+.signup-btn{
+  padding: 10px 5px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #8a2be2;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.signup-btn,
+  .update-btn {
+    width: 30%;
+    margin-left: 10;
+  }

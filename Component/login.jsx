@@ -88,7 +88,7 @@ function Login() {
         </form>
         <p className="signup-link">
           Don't have an account?{" "}
-          <button onClick={() => navigate("/signup")}>Sign Up</button>
+          <button className="signup-btn" onClick={() => navigate("/signup")}>Sign Up</button>
         </p>
       </div>
     </div>
