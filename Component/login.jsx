@@ -35,7 +35,7 @@ function Login() {
       // 🛠️ Check if the token is coming correctly
       console.log("Response Data:", res.data);
   
-      const token = res.data.token;
+      const token = res.data.token; // Adjust this line based on your API response structure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   
       if (token) {
         localStorage.setItem("token", token);
