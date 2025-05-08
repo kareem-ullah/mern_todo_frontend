@@ -6,24 +6,49 @@ import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await axios.post(`${BACKEND_URL}/login`, { email, password });
+  //     const token = res.data.token;
+
+  //     localStorage.setItem("token", token);
+
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.error("Login failed:", error);
+  //     alert("Invalid Credentials");
+  //   }
+  // };
+
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(`${BACKEND_URL}/login`, { email, password });
+  
+      // 🛠️ Check if the token is coming correctly
+      console.log("Response Data:", res.data);
+  
       const token = res.data.token;
-
-      localStorage.setItem("token", token);
-
-      navigate("/");
+  
+      if (token) {
+        localStorage.setItem("token", token);
+        navigate("/");
+      } else {
+        alert("Token not found in response.");
+      }
     } catch (error) {
       console.error("Login failed:", error);
       alert("Invalid Credentials");
     }
   };
+
 
   return (
     <div className="login-container">
