@@ -71,11 +71,9 @@ function Home() {
   };
 
   const handleLogout = () => {
-    // localStorage se user ka data clear karna
     localStorage.removeItem("user");
     localStorage.removeItem("token");
 
-    // Redirect to Login page
     navigate("/login");
   };
 

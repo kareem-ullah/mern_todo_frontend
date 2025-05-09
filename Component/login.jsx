@@ -10,32 +10,15 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post(`${BACKEND_URL}/login`, { email, password });
-  //     const token = res.data.token;
-
-  //     localStorage.setItem("token", token);
-
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.error("Login failed:", error);
-  //     alert("Invalid Credentials");
-  //   }
-  // };
-
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(`${BACKEND_URL}/login`, { email, password });
   
-      // 🛠️ Check if the token is coming correctly
       console.log("Response Data:", res.data);
   
-      const token = res.data.token; // Adjust this line based on your API response structure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+      const token = res.data.token;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
   
       if (token) {
         localStorage.setItem("token", token);
